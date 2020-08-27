@@ -1,1 +1,1 @@
-web: gunicorn pwend_credentials:app
+web: gunicorn pwned_credentials:app
