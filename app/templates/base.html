@@ -6,11 +6,23 @@
 {% endblock %}
 
 {% block title %}
-{{ site_name }}
+Pwned Credentials
 {% endblock %}
 
 {% block navbar %}
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ url_for('main.index') }}">{{ site_name }}</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ url_for('main.index') }}">Pwned Credentials</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('breaches_bp.breached_websites')}}">Breached Websites</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 {% endblock %}

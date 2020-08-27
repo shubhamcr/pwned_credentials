@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h2>Breached Websites</h2>
+            <p>
+                Details about the breached websites obtained from
+                <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
+            </p>
+        </div>
+    </div>
+    {% for breach in breached_websites %}
+    <div class="row justify-content-center" style="margin-top: 70px;">
+        <div class="col-sm-2">
+            <img class="img-fluid pwned-website-logo" src="{{breach.LogoPath}}" alt="{{breach.Name}} Logo">
+        </div>
+        <div class="col-sm-10">
+            <h3>{{breach.Title}}</h3>
+            <p>{{breach.Description | safe}}</p>
+            <p>
+                <strong>Breach date</strong>: {{breach.BreachDate | datetime("%Y-%m-%d", "%d %b, %Y")}}
+                <br>
+                <strong>Breached accounts</strong>: {{"{:,}".format(breach.PwnCount)}}
+                <br>
+                <strong>Breached data</strong>: {{breach.DataClasses | join(", ")}}
+                <br>
+                <a href="https://www.{{breach.Domain}}" alt="{{breach.Name}} link" target="_blank">
+                    Click here to visit {{breach.Title}}
+                </a>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%  endblock %}
+

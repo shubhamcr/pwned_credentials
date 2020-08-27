@@ -3,6 +3,10 @@ html, body {
     background-color: #000000;
 }
 
+body {
+    color: #d3d3d3
+}
+
 .center {
     position: absolute;
     top: 50%;
@@ -20,3 +24,12 @@ html, body {
     padding-left: 0;
     padding-right: 0;
 }
+
+@media only screen and (max-width: 768px) {
+    .pwned-website-logo {
+        max-height: 70px !important;
+        width: auto !important;
+        margin-bottom: 20px;
+    }
+}
+
