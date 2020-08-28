@@ -15,49 +15,70 @@
 
         {% with messages = get_flashed_messages(category_filter=["pwned"]) %}
         {% if messages %}
-        {% for message in messages%}
         <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
             <h2 class="text_center">Pwned!</h2>
+            {% for message in messages%}
             <p>
                 {{ message | safe }}
             </p>
+            {% endfor %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        {% endfor %}
         {% endif %}
         {% endwith %}
 
         {% with messages = get_flashed_messages(category_filter=["not_pwned"]) %}
         {% if messages %}
-        {% for message in messages %}
         <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
             <h2 class="text_center">No pwnage found!</h2>
+            {% for message in messages %}
             <p>
                 {{message | safe}}
             </p>
+            {% endfor %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        {% endfor %}
         {% endif %}
         {% endwith %}
 
         {% with messages = get_flashed_messages(category_filter=["service_unavailable"]) %}
         {% if messages %}
-        {% for message in messages %}
         <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
             <h2 class="text_center">Service unavailable!</h2>
+            {% for message in messages %}
             <p>
-                {{message}}
+                {{message | safe}}
             </p>
+            {% endfor %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% with messages = get_flashed_messages(category_filter=["password_weakness"]) %}
+        {% if messages %}
+        <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
+            <h2 class="text_center">Password Strength Weak!</h2>
+            <ul>
+                {% for message in messages%}
+                <li>{{message | safe}}</li>
+                {% endfor %}
+                <li>
+                    We strongly recommend you to read the
+                    <a href="https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords"
+                       target="_blank"> guidelines for strong password here.</a>
+                </li>
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         {% endif %}
         {% endwith %}
 
