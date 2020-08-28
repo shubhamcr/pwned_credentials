@@ -2,96 +2,98 @@
 
 {% block content %}
 
-<div class="container center pwned-container">
-    <div class="row justify-content-center">
-        {% for error in form.password.errors %}
-        <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
-            {{ error }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endfor %}
-
-        {% with messages = get_flashed_messages(category_filter=["pwned"]) %}
-        {% if messages %}
-        <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
-            <h2 class="text_center">Pwned!</h2>
-            {% for message in messages%}
-            <p>
-                {{ message | safe }}
-            </p>
-            {% endfor %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% endwith %}
-
-        {% with messages = get_flashed_messages(category_filter=["not_pwned"]) %}
-        {% if messages %}
-        <div class="alert alert-success alert-dismissible fade show col-md-9" role="alert">
-            <h2 class="text_center">No pwnage found!</h2>
-            {% for message in messages %}
-            <p>
-                {{message | safe}}
-            </p>
-            {% endfor %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% endwith %}
-
-        {% with messages = get_flashed_messages(category_filter=["service_unavailable"]) %}
-        {% if messages %}
-        <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
-            <h2 class="text_center">Service unavailable!</h2>
-            {% for message in messages %}
-            <p>
-                {{message | safe}}
-            </p>
-            {% endfor %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% endwith %}
-
-        {% with messages = get_flashed_messages(category_filter=["password_weakness"]) %}
-        {% if messages %}
-        <div class="alert alert-danger alert-dismissible fade show col-md-9" role="alert">
-            <h2 class="text_center">Password Strength Weak!</h2>
-            <ul>
-                {% for message in messages%}
-                <li>{{message | safe}}</li>
-                {% endfor %}
-                <li>
-                    We strongly recommend you to read the
-                    <a href="https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords"
-                       target="_blank"> guidelines for strong password here.</a>
-                </li>
-            </ul>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% endwith %}
-
-        <div class="col-md-9 pwned-form-container">
-        <form action="/" method="post" novalidate>
-            {{ form.hidden_tag() }}
-            <div class="input-group mb-2">
-                {{ form.password(placeholder=form.password.label.text, class_="form-control form-control-lg") }}
-                <div class="input-group-append">
-                    {{ form.submit(class_="btn btn-primary btn-lg") }}
-                </div>
+<div class="container pwned-container">
+    <div class="row h-100">
+        <div class="col my-auto mx-auto">
+            {% for error in form.password.errors %}
+            <div class="alert alert-danger alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                {{ error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </form>
+            {% endfor %}
+
+            {% with messages = get_flashed_messages(category_filter=["pwned"]) %}
+            {% if messages %}
+            <div class="alert alert-danger alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <h2 class="text_center">Pwned!</h2>
+                {% for message in messages%}
+                <p>
+                    {{ message | safe }}
+                </p>
+                {% endfor %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% with messages = get_flashed_messages(category_filter=["not_pwned"]) %}
+            {% if messages %}
+            <div class="alert alert-success alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <h2 class="text_center">No pwnage found!</h2>
+                {% for message in messages %}
+                <p>
+                    {{message | safe}}
+                </p>
+                {% endfor %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% with messages = get_flashed_messages(category_filter=["service_unavailable"]) %}
+            {% if messages %}
+            <div class="alert alert-danger alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <h2 class="text_center">Service unavailable!</h2>
+                {% for message in messages %}
+                <p>
+                    {{message | safe}}
+                </p>
+                {% endfor %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% with messages = get_flashed_messages(category_filter=["password_weakness"]) %}
+            {% if messages %}
+            <div class="alert alert-danger alert-dismissible fade show col-md-9 mx-auto" role="alert">
+                <h2 class="text_center">Password Strength Weak!</h2>
+                <ul>
+                    {% for message in messages%}
+                    <li>{{message | safe}}</li>
+                    {% endfor %}
+                    <li>
+                        We strongly recommend you to read the
+                        <a href="https://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords"
+                           target="_blank"> guidelines for strong password here.</a>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <div class="col-md-9 px-0 mx-auto">
+                <form action="/" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <div class="input-group mb-2">
+                        {{ form.password(placeholder=form.password.label.text, class_="form-control form-control-lg") }}
+                        <div class="input-group-append">
+                            {{ form.submit(class_="btn btn-primary btn-lg") }}
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
