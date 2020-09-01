@@ -1,4 +1,8 @@
 # Pwned Credentials
+[![Flask version](https://img.shields.io/badge/flask-v1.1.2-blue)](https://flask.palletsprojects.com/en/1.1.x/)
+[![Python version](https://img.shields.io/badge/python-v3.8.1-brightgreen)](https://www.python.org/)
+![Open source project license](https://img.shields.io/badge/license-MIT-green)
+
 [Pwned Credentials](https://pwnedcredentials.herokuapp.com/) is a webapp which allows users to 
 securely search over multiple data breaches to determine if their password has ever been 
 compromised, alongside necessary password strength recommendations. It also provides an exhaustive 
