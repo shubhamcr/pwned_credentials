@@ -13,7 +13,7 @@ The pwned password service provided by Have I Been Pwned utilizes
 it and maintain anonymity. The pwned password service only requires first 5 characters of SHA-I 
 password hash and returns a list of SHA-I hashes matching the first 5 characters, thus delegating the 
 responsibility to the client to match the password hash against the list provided by the service. This 
-ensures that the service isnot aware about the full password hash and thus cannot use it to generate the 
+ensures that the service is not aware about the full password hash and thus cannot use it to generate the 
 raw password.
 Please refer [here](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/) for further
 details with illustrated example.
