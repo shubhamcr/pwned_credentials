@@ -18,3 +18,15 @@ raw password.
 Please refer [here](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/) for further
 details with illustrated example.
 
+
+## Project setup instructions
+1. Clone this repository on your local machine.
+2. Make sure python 3.8 or above and pip is installed. Refer [here](https://www.python.org/downloads/)
+for python installation.
+3. Create and activate a virtual environment.
+4. Navigate to project directory and run ```pip install -r requirements.txt``` on terminal to install 
+all the project requirements.
+5. Run ```export FLASK_APP=pwned_credentials.py``` on terminal to set the FLASK_APP environment
+variable. Use ```set``` instead of ```export``` on Windows.
+6. Execute ```flask run``` command on terminal to launch the application.
+7. Navigate to http://127.0.0.1:5000/ to visit the website home page.
